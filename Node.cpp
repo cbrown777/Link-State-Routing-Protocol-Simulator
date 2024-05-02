@@ -16,18 +16,15 @@ using namespace std;
 
 Node::Node(int id) : id(id){
 
-    
-
-
 }
 
 
 
-vector<Edge*> Node::getEdges() const{
+vector<Edge>& Node::getEdges() {
     return edges;
 }
 
 
-void Node::addEdge(Edge* newEdge){
+void Node::addEdge(const Edge& newEdge){
     edges.push_back(newEdge);
 }

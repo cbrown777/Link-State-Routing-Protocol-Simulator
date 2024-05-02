@@ -20,7 +20,7 @@ class Node {
 
     private:
         int id; 
-        vector<Edge*> edges;
+        vector<Edge> edges;
 
         // // Create a priority queue to store vertices and their distances
         // priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
@@ -44,8 +44,8 @@ class Node {
 
     public: 
         Node(int id);
-        vector<Edge*> getEdges() const;
-        void addEdge(Edge* newEdge);
+        vector<Edge>& getEdges();
+        void addEdge(const Edge& newEdge);
 
 };
 
