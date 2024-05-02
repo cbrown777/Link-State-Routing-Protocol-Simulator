@@ -72,7 +72,7 @@ int main(int argc, char** argv) {
     // Generate Topology
     Topology top_1;
     top_1.updateNodes(topofileStream);
-    //top_1.printNodeSet();
+    top_1.printNodesAndEdges();
 
 
 
