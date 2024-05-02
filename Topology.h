@@ -30,8 +30,6 @@ class Topology{
   public:
     Topology();
     void updateNodes(ifstream& fileStream);
-    void printNodeSet();
-    Edge* createEdge(int dest, int cost);
     void printNodesAndEdges();
 
 

@@ -22,24 +22,30 @@ class Node {
         int _id; 
         vector<Edge> edges;
 
-        // // Create a priority queue to store vertices and their distances
-        // priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
-        // // P[v]
-        // unordered_map<int, int> predecessors;
+        // Within a Struct/Object for Computing Shortest Paths
+            // // Create a priority queue to store vertices and their distances
+            // priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
-
-
-        // // Create a map of int id -> dist to store distances from source to all vertices
-            // Generate V from the # of keys of the map id -> Node
-            // Map each key to INF
-        // unordered_map<int> dist(V, INF);
+            // // P[v]
+            // unordered_map<int, int> predecessors;
 
 
 
+            // // Create a map of int id -> dist to store distances from source to all vertices
+                // Generate V from the # of keys of the map id -> Node
+                // Map each key to INF
+            // unordered_map<int, int> dist(V, INF);
 
-        // Will need string Path for each other dest Node
-        // Map: Node (struct or id) -> Path (string) 
+
+
+        // Within a Forwarding Table Struct/Object
+            // Several Forwarding Table Entries (One for each destination)
+                // Forwarding Table Entry
+                    // destination
+                    // path cost
+                    // next hop (derived from Path)
+                    // Path 
 
 
     public: 

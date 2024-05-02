@@ -88,63 +88,6 @@ void Topology::addNodesToMap(int node_1, int node_2, int cost) {
 }
 
 
-// Edge* Topology::createEdge(int dest, int cost) {
-//     // Create a new Edge object dynamically using new
-//     Edge* newEdge = new Edge;
-//     newEdge->dest = dest;
-//     newEdge->cost = cost;
-//     return newEdge;
-// }
-
-// void Topology::addNodesToMap(int node_1, int node_2, int cost) {
-//     // if node_1 exists in nodeMap
-//         // nodeIt will be an iterator pointing to the element with key node_1 if it exists in nodeMap
-//         // or it will be equal to nodeMap.end() if node_1 is not found in nodeMap. 
-//     auto nodeIt = this->nodeMap.find(node_1);
-//     if (nodeIt != this->nodeMap.end()) {
-//         // Node node_1 exists in nodeMap
-//             // nodeIt->second returns a pointer to a Node object
-//         Node* node = nodeIt->second;
-
-//         // Check if node_2 exists as a destination in any edge
-//         bool node_2_found = false;
-//         for (auto it = node->getEdges().begin(); it != node->getEdges().end(); ++it) {
-//             Edge* edge = *it;
-//             if (edge->dest == node_2) {
-//                 // Node node_2 found as a destination in an existing edge
-//                 if (cost == -999) {
-//                     // Delete the corresponding edge
-//                     delete edge;
-//                     node->getEdges().erase(it);
-//                 } else {
-//                     // Update the cost of the edge
-//                     edge->cost = cost;
-//                 }
-//                 node_2_found = true;
-//                 break;
-//             }
-//         }
-
-//         // if node_1 exists in nodeMap, and node_2 is NOT found in existing edges, create a new edge
-//         if (!node_2_found && cost != -999) {
-//             // Create a new Edge dynamically
-//             Edge* newEdge = createEdge(node_2, cost);
-//             // Add the new edge to the node
-//             node->addEdge(newEdge);
-//         }
-
-//     // if node_1 does NOT exist in nodeMap
-//     } else {
-//         // Node node_1 does not exist in nodeMap, add it and create a new edge
-//         Node* newNode = new Node(node_1); // Create a new Node
-//         Edge* newEdge = createEdge(node_2, cost);
-//         newNode->addEdge(newEdge); // Add edge to the new Node
-//         this->nodeMap[node_1] = newNode; // Add the new Node to nodeMap
-//     }
-// }
-
-
-
 
 // Generate Set of Nodes
 void Topology::updateNodes(ifstream& fileStream){
@@ -243,11 +186,58 @@ void Topology::printNodesAndEdges(int randomInt) {
 
 
 
-// // Print Set of Nodes
-void Topology::printNodeSet(){
 
-    cout << "\n The current set of Nodes" << endl;
-    for (int element : this->nodeSet) {
-        cout << element << " \n";
-    }
-}
+// Edge* Topology::createEdge(int dest, int cost) {
+//     // Create a new Edge object dynamically using new
+//     Edge* newEdge = new Edge;
+//     newEdge->dest = dest;
+//     newEdge->cost = cost;
+//     return newEdge;
+// }
+
+// void Topology::addNodesToMap(int node_1, int node_2, int cost) {
+//     // if node_1 exists in nodeMap
+//         // nodeIt will be an iterator pointing to the element with key node_1 if it exists in nodeMap
+//         // or it will be equal to nodeMap.end() if node_1 is not found in nodeMap. 
+//     auto nodeIt = this->nodeMap.find(node_1);
+//     if (nodeIt != this->nodeMap.end()) {
+//         // Node node_1 exists in nodeMap
+//             // nodeIt->second returns a pointer to a Node object
+//         Node* node = nodeIt->second;
+
+//         // Check if node_2 exists as a destination in any edge
+//         bool node_2_found = false;
+//         for (auto it = node->getEdges().begin(); it != node->getEdges().end(); ++it) {
+//             Edge* edge = *it;
+//             if (edge->dest == node_2) {
+//                 // Node node_2 found as a destination in an existing edge
+//                 if (cost == -999) {
+//                     // Delete the corresponding edge
+//                     delete edge;
+//                     node->getEdges().erase(it);
+//                 } else {
+//                     // Update the cost of the edge
+//                     edge->cost = cost;
+//                 }
+//                 node_2_found = true;
+//                 break;
+//             }
+//         }
+
+//         // if node_1 exists in nodeMap, and node_2 is NOT found in existing edges, create a new edge
+//         if (!node_2_found && cost != -999) {
+//             // Create a new Edge dynamically
+//             Edge* newEdge = createEdge(node_2, cost);
+//             // Add the new edge to the node
+//             node->addEdge(newEdge);
+//         }
+
+//     // if node_1 does NOT exist in nodeMap
+//     } else {
+//         // Node node_1 does not exist in nodeMap, add it and create a new edge
+//         Node* newNode = new Node(node_1); // Create a new Node
+//         Edge* newEdge = createEdge(node_2, cost);
+//         newNode->addEdge(newEdge); // Add edge to the new Node
+//         this->nodeMap[node_1] = newNode; // Add the new Node to nodeMap
+//     }
+// }
