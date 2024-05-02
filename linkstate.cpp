@@ -81,8 +81,11 @@ int main(int argc, char** argv) {
 
 
 
+    cout << "Let's generate shortest paths from every Node... \n\n" << endl;
 
 
+    top_1.computeShortestPaths();
+    top_1.printDistAndPredecessorsForEveryNode();
 
 
 

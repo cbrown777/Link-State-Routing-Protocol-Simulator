@@ -23,19 +23,15 @@ class Node {
         vector<Edge> edges;
 
 
-        // Within a Struct/Object for Computing Shortest Paths
-            // // Create a priority queue to store vertices and their distances
-            // priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-
-            // // P[v]
-            // unordered_map<int, int> predecessors;
+        // // P[v]
+            // node #, predecessor
+        unordered_map<int, int> predecessors;
 
 
-
-            // // Create a map of int id -> dist to store distances from source to all vertices
-                // Generate V from the # of keys of the map id -> Node
-                // Map each key to INF
-            // unordered_map<int, int> dist(V, INF);
+        // // Create a map of int id -> dist to store distances from source to all vertices
+            // Generate V from the # of keys of the map id -> Node
+            // Map each key to INF
+        unordered_map<int, int> dist;
 
 
 
@@ -48,10 +44,18 @@ class Node {
                     // Path 
 
 
+
+
+
     public: 
         Node(int id);
         vector<Edge>& getEdges();
         void addEdge(const Edge& newEdge);
+        void assignDist(unordered_map<int, int> dist);
+        void assignPredecessors(unordered_map<int, int> predecessors);
+
+        void printDist();
+        void printPredecessors();
 
 };
 

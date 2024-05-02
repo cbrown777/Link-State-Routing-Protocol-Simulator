@@ -19,25 +19,18 @@ class Topology{
     unordered_map<int, Node*> nodeMap;
     int V;
 
-
     void addNodesToMap(int node_1, int node_2, int cost);
-
-
     void printNodesAndEdges(int randomInt);
-
-    void dijkstra(int src);
-
+    void dijkstra(int srcNodeID);
     void setNumberOfVertices();
-
 
   public:
     Topology();
     void updateNodes(ifstream& fileStream);
     void printNodesAndEdges();
     void computeShortestPaths();
-
+    void printDistAndPredecessorsForEveryNode();
 
 };
-
 
 #endif
