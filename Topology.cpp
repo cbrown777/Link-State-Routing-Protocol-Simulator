@@ -89,6 +89,11 @@ void Topology::addNodesToMap(int node_1, int node_2, int cost) {
 
 
 
+void Topology::setNumberOfVertices(){
+    this->V = nodeMap.size();
+}
+
+
 // Generate Set of Nodes
 void Topology::updateNodes(ifstream& fileStream){
 
@@ -144,6 +149,7 @@ void Topology::updateNodes(ifstream& fileStream){
     }
 
     cout << "nodeSet generated successfully! \n" << endl;
+    setNumberOfVertices();
 }
 
 
@@ -179,6 +185,99 @@ void Topology::printNodesAndEdges(int randomInt) {
         cout << endl;
     }
 }
+
+
+
+
+
+
+
+
+
+
+// params: topology, Node #, # of Nodes
+void Topology::dijkstra(int src) {
+
+    // Create a priority queue to store vertices and their distances
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+
+    // P[v]
+    unordered_map<int, int> predecessors;
+
+    // Create a vector to store distances from source to all vertices
+    vector<int> dist(V, INF);
+
+    // Set distance from source to itself as 0
+    dist[src] = 0;
+
+    // Push the source vertex into the priority queue
+        // dist, node #
+    pq.push({0, src});
+
+    // Loop until priority queue becomes empty
+    while (!pq.empty()) {
+        // Extract the node # with minimum distance from the priority queue
+        int v_i = pq.top().second;
+        pq.pop();
+
+        // Iterate through all adjacent vertices of u
+        for (const Edge& edge : adjList[v_i]) {
+            int w = edge.dest;
+            int weight = edge.cost;
+
+            // If a shorter path to v is found through u, update its distance
+            if (dist[v_i] + weight < dist[w]) {
+                dist[w] = dist[v_i] + weight;
+                predecessors[w] = v_i;
+                // Push the updated distance and vertex into the priority queue
+                pq.push({dist[w], w});
+            }
+
+            // create tie-breaker: if a current-best-known path and newly found path are equal in cost:
+			    // choose the path whose last node before the destination has the smaller ID**
+            if (dist[v_i] + weight == dist[w]) {
+                predecessors[w] = min(predecessors[w], v_i);
+            }
+
+        }
+
+    }
+
+
+    // print out predecessors map
+    cout << "Predecessor Map: " << endl;
+    cout << "Key: \t Value: " << endl;
+    for (auto it = predecessors.begin(); it != predecessors.end(); ++it) {
+        cout << it->first << "\t" << it->second << endl;
+    }
+    cout << "\n";
+
+    // print out Vertex, Distance, Path
+    printSolution(dist, predecessors, V);
+}
+
+
+
+
+
+
+// Compute Paths for Nodes
+
+void Topology::computeShortestPaths(){
+    // loop through keys of nodeMap, and pass to dijkstra to compute all shortest paths from srcNode
+    for (auto it = nodeMap.begin(); it != nodeMap.end(); ++it) {
+        int srcNode = it->first;
+        dijkstra(srcNode);
+    }
+}
+
+
+
+
+
+
+
+
 
 
 

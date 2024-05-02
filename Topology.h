@@ -16,8 +16,8 @@ using std::ifstream;
 
 class Topology{
   private:
-    set<int> nodeSet;
     unordered_map<int, Node*> nodeMap;
+    int V;
 
 
     void addNodesToMap(int node_1, int node_2, int cost);
@@ -25,12 +25,16 @@ class Topology{
 
     void printNodesAndEdges(int randomInt);
 
+    void dijkstra(int src);
+
+    void setNumberOfVertices();
 
 
   public:
     Topology();
     void updateNodes(ifstream& fileStream);
     void printNodesAndEdges();
+    void computeShortestPaths();
 
 
 };
