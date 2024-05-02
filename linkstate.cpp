@@ -72,7 +72,15 @@ int main(int argc, char** argv) {
     // Generate Topology
     Topology top_1;
     top_1.updateNodes(topofileStream);
-    top_1.printNodesAndEdges();
+    //top_1.printNodesAndEdges();
+
+    cout << "Just completed printNodesAndEdges(), now let's add the changesfile to see if that correctly modifies the Nodes... \n\n" << endl;
+
+
+    top_1.updateNodes(changesfileStream);
+
+
+
 
 
 

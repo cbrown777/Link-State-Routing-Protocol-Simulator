@@ -192,6 +192,9 @@ void Topology::updateNodes(ifstream& fileStream){
         cout << "2nd print: cost: " << cost << endl;
         cout << "\n" << endl;
 
+
+        printNodesAndEdges(999);
+
         // this->nodeSet.insert(node_1);
         // this->nodeSet.insert(node_2);
 
@@ -219,7 +222,20 @@ void Topology::printNodesAndEdges() {
     }
 }
 
-
+void Topology::printNodesAndEdges(int randomInt) {
+    cout << "Printing Nodes and Edges:" << endl;
+    for (const auto& pair : this->nodeMap) {
+        int nodeId = pair.first;
+        Node* node = pair.second;
+        cout << "Node ID: " << nodeId << endl;
+        cout << "Edges:" << endl;
+        vector<Edge>& edges = node->getEdges();
+        for (const Edge& edge : edges) {
+            cout << "    Destination: " << edge.dest << ", Cost: " << edge.cost << endl;
+        }
+        cout << endl;
+    }
+}
 
 
 

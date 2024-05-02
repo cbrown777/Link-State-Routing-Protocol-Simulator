@@ -23,6 +23,10 @@ class Topology{
     void addNodesToMap(int node_1, int node_2, int cost);
 
 
+    void printNodesAndEdges(int randomInt);
+
+
+
   public:
     Topology();
     void updateNodes(ifstream& fileStream);

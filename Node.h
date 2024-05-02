@@ -19,7 +19,7 @@ class Node {
 
 
     private:
-        int id; 
+        int _id; 
         vector<Edge> edges;
 
         // // Create a priority queue to store vertices and their distances

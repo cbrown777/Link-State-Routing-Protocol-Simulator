@@ -14,7 +14,7 @@ using namespace std;
 
 
 
-Node::Node(int id) : id(id){
+Node::Node(int id) : _id(id){
 
 }
 
