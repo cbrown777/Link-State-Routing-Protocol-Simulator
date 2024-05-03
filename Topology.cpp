@@ -203,9 +203,13 @@ void Topology::dijkstra(int src) {
     // P[v]
     unordered_map<int, int> predecessors;
 
-    // Create a vector to store distances from source to all vertices
+    // Create a map to store distances from source to all vertices
         // vector<int> dist(this->V, INF);
-    unordered_map<int, int> dist(this->V, INF);
+    // unordered_map<int, int> dist(this->V, INF);
+    unordered_map<int, int> dist;
+    for(auto it = this->nodeMap.begin(); it != nodeMap.end(); ++it){
+        dist[it->first] = INF;
+    }
 
     // Set distance from source to itself as 0
     dist[src] = 0;
