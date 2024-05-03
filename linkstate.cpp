@@ -77,6 +77,7 @@ int main(int argc, char** argv) {
     cout << "Just completed printNodesAndEdges(), now let's add the changesfile to see if that correctly modifies the Nodes... \n\n" << endl;
 
 
+    // add links for 2-4 and then delete, delete links b/w 6-5, 6-12
     top_1.updateNodes(changesfileStream);
 
 
@@ -84,8 +85,8 @@ int main(int argc, char** argv) {
     cout << "Let's generate shortest paths from every Node... \n\n" << endl;
 
 
-    // top_1.computeShortestPaths();
-    // top_1.printDistAndPredecessorsForEveryNode();
+    top_1.computeShortestPaths();
+    top_1.printDistAndPredecessorsForEveryNode();
 
 
 

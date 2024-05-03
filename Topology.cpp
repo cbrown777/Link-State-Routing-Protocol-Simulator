@@ -346,13 +346,14 @@ void Topology::dijkstra(int src) {
 
 
 // Compute Paths for Nodes
-
 void Topology::computeShortestPaths(){
     // loop through keys of nodeMap, and pass to dijkstra to compute all shortest paths from srcNode
+        // generates dist and predecessors maps for each Node object
     for (auto it = nodeMap.begin(); it != nodeMap.end(); ++it) {
         int srcNodeID = it->first;
         dijkstra(srcNodeID);
     }
+    cout << "End of computeShortestPaths() \n\n\n\n" << endl;
 }
 
 
