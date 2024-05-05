@@ -86,9 +86,16 @@ int main(int argc, char** argv) {
 
 
     top_1.computeShortestPaths();
+
+
+    cout << "Now printing all dist maps and predecessors maps..." << endl;
+    cout << "____________________________________________________\n\n" << endl;
+
     top_1.printDistAndPredecessorsForEveryNode();
 
 
+    // Generate Forwarding Tables for Nodes after shortest paths have been computed
+    top_1.generateNodeForwardingTables();
 
 
 

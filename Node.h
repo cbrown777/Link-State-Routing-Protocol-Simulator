@@ -46,9 +46,11 @@ class Node {
                     // next hop (derived from Path)
                     // Path 
 
+        void emptyForwardingTable();
 
-
-
+        void generateForwardingTableKeys();
+        string generateBestPathToDestination(int destination);
+        void generateAllPaths();
 
     public: 
         Node(int id);
@@ -59,6 +61,8 @@ class Node {
 
         void printDist();
         void printPredecessors();
+        void generateForwardingTable();
+        void printAllPaths();
 
 };
 

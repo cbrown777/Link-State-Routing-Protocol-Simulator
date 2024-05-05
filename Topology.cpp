@@ -357,14 +357,6 @@ void Topology::computeShortestPaths(){
 }
 
 
-void Topology::generateNodeForwardingTables(){
-
-
-
-
-}
-
-
 
 void Topology::printDistAndPredecessorsForEveryNode(){
     for (auto it = nodeMap.begin(); it != nodeMap.end(); ++it) {
@@ -376,6 +368,13 @@ void Topology::printDistAndPredecessorsForEveryNode(){
 
 
 
+
+void Topology::generateNodeForwardingTables(){
+    // Loop through each Node in nodeMap
+        // Call node->generateForwardingTable()
+
+
+}
 
 
 
