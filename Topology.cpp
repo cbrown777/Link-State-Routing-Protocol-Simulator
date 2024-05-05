@@ -357,6 +357,13 @@ void Topology::computeShortestPaths(){
 }
 
 
+void Topology::generateNodeForwardingTables(){
+
+
+
+
+}
+
 
 
 void Topology::printDistAndPredecessorsForEveryNode(){

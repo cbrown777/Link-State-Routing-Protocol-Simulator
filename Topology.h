@@ -30,6 +30,7 @@ class Topology{
     void printNodesAndEdges();
     void computeShortestPaths();
     void printDistAndPredecessorsForEveryNode();
+    void generateNodeForwardingTables();
 
 };
 

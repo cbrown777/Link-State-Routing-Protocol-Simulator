@@ -2,6 +2,7 @@
 #define NODE_H
 
 #include "Edge.h"
+#include "ForwardingTableEntry.h"
 
 #include <string>
 #include <vector>
@@ -33,6 +34,8 @@ class Node {
             // Map each key to INF
         unordered_map<int, int> dist;
 
+
+        unordered_map<int, ForwardingTableEntry> forwardingTable;
 
 
         // Within a Forwarding Table Struct/Object
