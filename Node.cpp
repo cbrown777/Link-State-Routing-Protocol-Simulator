@@ -20,6 +20,11 @@ Node::Node(int id) : _id(id){
 }
 
 
+int Node::getID(){
+    return _id;
+}
+
+
 
 vector<Edge>& Node::getEdges() {
     return edges;

@@ -373,6 +373,11 @@ void Topology::generateNodeForwardingTables(){
     // Loop through each Node in nodeMap
         // Call node->generateForwardingTable()
 
+    for (auto it = nodeMap.begin(); it != nodeMap.end(); ++it){
+        Node* currentNode = it->second;
+        cout << "Generating Forwarding Table for Node " << currentNode->getID() << "...";
+        currentNode->generateForwardingTable();
+    }
 
 }
 

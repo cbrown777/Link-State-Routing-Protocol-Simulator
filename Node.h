@@ -58,6 +58,7 @@ class Node {
         void addEdge(const Edge& newEdge);
         void assignDist(unordered_map<int, int> dist);
         void assignPredecessors(unordered_map<int, int> predecessors);
+        int getID();
 
         void printDist();
         void printPredecessors();
