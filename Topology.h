@@ -31,6 +31,7 @@ class Topology{
     void computeShortestPaths();
     void printDistAndPredecessorsForEveryNode();
     void generateNodeForwardingTables();
+    void writeOutForwardingTablesForAllNodes(ofstream& fileStreamOut);
 
 };
 

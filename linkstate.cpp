@@ -100,6 +100,9 @@ int main(int argc, char** argv) {
 
 
 
+    top_1.writeOutForwardingTablesForAllNodes(fileStreamOut);
+
+
 
 
 

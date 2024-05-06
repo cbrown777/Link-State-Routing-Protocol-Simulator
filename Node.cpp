@@ -237,20 +237,19 @@ void Node::printAllPaths(){
         cout << "Path from " << this->_id << " to " << entry.dest << " isReachable: " << entry.isReachable << ", and the path is: " << *entry.path << " and the cost is: " << entry.cost << ", and the next hop is: " << entry.nextHop << endl;
     }
     cout << "\n\n";
-
 }
 
 
 
 
 void Node::writeOutForwardingTable(ofstream& fileStreamOut){
-    
     for(auto it = this->forwardingTable.begin(); it != this->forwardingTable.end(); ++it){
-        
-
+        ForwardingTableEntry& entry = it->second;
+        if(entry.isReachable){
+            fileStreamOut << "Node " << this->_id << " Forwarding Table..." << endl;
+            fileStreamOut << entry.dest << " " << entry.nextHop << " " << entry.cost << endl;
+        }
     }
-
-
 }
 
 

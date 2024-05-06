@@ -384,6 +384,16 @@ void Topology::generateNodeForwardingTables(){
 
 
 
+void Topology::writeOutForwardingTablesForAllNodes(ofstream& fileStreamOut){
+    for (auto it = nodeMap.begin(); it != nodeMap.end(); ++it){
+        Node* currentNode = it->second;
+        cout << "Writing out Forwarding Table for Node " << currentNode->getID() << "..." << endl;
+        currentNode->writeOutForwardingTable(fileStreamOut);
+    }
+}
+
+
+
 
 
 
