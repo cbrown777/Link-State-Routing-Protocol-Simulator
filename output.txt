@@ -37,7 +37,7 @@ Node 12 Forwarding Table...
  writeOutMessages() ...
 source_node: 2
 dest_node: 1
-message: here
+message: here is a message from 2 to 1
 
 
 
@@ -45,6 +45,6 @@ message: here
  writeOutMessages() ...
 source_node: 3
 dest_node: 5
-message: this
+message: this one gets sent from 3 to 5!
 
 

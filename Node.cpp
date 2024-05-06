@@ -213,20 +213,11 @@ void Node::generateForwardingTable(){
     // clears the current forwarding table (making it empty), and generates keys to the map, as well
     // as empty ForwardingTableEntry structs 
 
-
-
-
-
-
     this->emptyForwardingTable();
     this->generateForwardingTableKeys();
     this->generateAllPaths();
     this->generateNextHops();
     this->printAllPaths();
-
-
-
-
 }
 
 
@@ -253,3 +244,35 @@ void Node::writeOutForwardingTable(ofstream& fileStreamOut){
 }
 
 
+
+
+string Node::cutOffDestNodeFromPath(const string& path){
+    istringstream iss(path);
+    ostringstream oss;
+    
+    string number;
+    bool isFirstNumber = true;
+    
+    // Read numbers separated by space
+    while (iss >> number) {
+        if (!isFirstNumber) {
+            oss << " "; // Add space before adding the number
+        }
+        oss << number;
+        isFirstNumber = false;
+    }
+    
+    return oss.str();
+}
+
+
+
+void Node::writeOutMessage(int dest_node, string& message, ofstream& fileStreamOut){
+    ForwardingTableEntry& entry = forwardingTable[dest_node];
+    if(entry.cost == INF){
+        fileStreamOut << "from " << this->_id << " to " << dest_node << " cost infinite hops unreachable message " << message << endl;
+    }else{
+        string shortenedPath = cutOffDestNodeFromPath(*entry.path);
+        fileStreamOut << "from " << this->_id << " to " << dest_node << " cost " << entry.cost << " hops " << shortenedPath << " message " << message;
+    }
+}
