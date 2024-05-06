@@ -246,20 +246,30 @@ void Node::writeOutForwardingTable(ofstream& fileStreamOut){
 
 
 
-string Node::cutOffDestNodeFromPath(const string& path){
+string Node::extractNumbersExceptLast(const string& path) {
     istringstream iss(path);
     ostringstream oss;
     
     string number;
+    string lastNumber;
     bool isFirstNumber = true;
+    bool hasMoreThanOneNumber = false;
     
     // Read numbers separated by space
     while (iss >> number) {
         if (!isFirstNumber) {
-            oss << " "; // Add space before adding the number
+            if (!lastNumber.empty()) {
+                oss << lastNumber << " "; // Add space before adding the number
+            }
+            hasMoreThanOneNumber = true;
         }
-        oss << number;
+        lastNumber = number; // Store the current number for the next iteration
         isFirstNumber = false;
+    }
+    
+    // If there's only one number, return it immediately
+    if (!hasMoreThanOneNumber) {
+        return lastNumber + " ";
     }
     
     return oss.str();
@@ -272,7 +282,7 @@ void Node::writeOutMessage(int dest_node, string& message, ofstream& fileStreamO
     if(entry.cost == INF){
         fileStreamOut << "from " << this->_id << " to " << dest_node << " cost infinite hops unreachable message " << message << endl;
     }else{
-        string shortenedPath = cutOffDestNodeFromPath(*entry.path);
-        fileStreamOut << "from " << this->_id << " to " << dest_node << " cost " << entry.cost << " hops " << shortenedPath << " message " << message;
+        string shortenedPath = extractNumbersExceptLast(*entry.path);
+        fileStreamOut << "from " << this->_id << " to " << dest_node << " cost " << entry.cost << " hops " << shortenedPath << "message " << message << endl;
     }
 }

@@ -57,7 +57,7 @@ class Node {
         void printAllPaths();
         void generateNextHops();
         int getSecondNumber(const string& path);
-        string cutOffDestNodeFromPath(const string& path);
+        string extractNumbersExceptLast(const string& path);
 
 
 

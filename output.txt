@@ -32,19 +32,8 @@ Node 6 Forwarding Table...
 6 6 0
 Node 12 Forwarding Table...
 12 12 0
-
-
- writeOutMessages() ...
-source_node: 2
-dest_node: 1
-message: here is a message from 2 to 1
-
-
-
-
- writeOutMessages() ...
-source_node: 3
-dest_node: 5
-message: this one gets sent from 3 to 5!
-
-
+from 2 to 1 cost 6 hops 2 5 4 message here is a message from 2 to 1
+from 3 to 5 cost 7 hops 3 2 message this one gets sent from 3 to 5!
+from 4 to 4 cost 0 hops 4 message this one gets sent from 4 to 4!
+from 6 to 6 cost 0 hops 6 message this one gets sent from 6 to 6!
+from 1 to 12 cost infinite hops unreachable message this one gets sent from 1 to 12!

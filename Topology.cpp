@@ -418,11 +418,11 @@ void Topology::writeOutMessages(ofstream& fileStreamOut, ifstream& messagefileSt
 
 
         // Output the parsed numbers
-        fileStreamOut << "\n\nwriteOutMessages() ..." << endl;
-        fileStreamOut << "source_node: " << source_node << endl;
-        fileStreamOut << "dest_node: " << dest_node << endl;
-        fileStreamOut << "message: " << message << endl;
-        fileStreamOut << "\n" << endl;
+        // fileStreamOut << "\n\nwriteOutMessages() ..." << endl;
+        // fileStreamOut << "source_node: " << source_node << endl;
+        // fileStreamOut << "dest_node: " << dest_node << endl;
+        // fileStreamOut << "message: " << message << endl;
+        // fileStreamOut << "\n" << endl;
 
 
         nodeMap[source_node]->writeOutMessage(dest_node, message, fileStreamOut);
