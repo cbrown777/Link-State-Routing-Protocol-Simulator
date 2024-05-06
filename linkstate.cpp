@@ -114,13 +114,13 @@ int main(int argc, char** argv) {
 
 
 
-    // // close input files
-    // topofileStream.close();
-    // messagefileStream.close();
-    // changesfileStream.close();
+    // close input files
+    topofileStream.close();
+    messagefileStream.close();
+    changesfileStream.close();
 
-    // // close output files
-    // fileStreamOut.close();
+    // close output files
+    fileStreamOut.close();
 
 
     return 0;
