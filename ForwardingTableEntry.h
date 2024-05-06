@@ -13,7 +13,8 @@ struct ForwardingTableEntry{
     int dest;
     bool isReachable;
     int cost;
-    int nextHop;
+    int nextHop = -1;
+    // unique_ptr<string> nextHop;
     //string* path;
     unique_ptr<string> path; // Using smart pointer here
 

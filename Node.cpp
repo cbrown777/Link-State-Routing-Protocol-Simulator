@@ -88,10 +88,9 @@ void Node::emptyForwardingTable() {
 
 
 void Node::generateForwardingTableKeys(){
-    // clear the forwarding table out before re-filling it with data
     for(auto it = this->dist.begin(); it != this->dist.end(); ++it){
         int destNodeID = it->first;
-        cout << "current dest node id: " << destNodeID << endl;
+        //cout << "current dest node id: " << destNodeID << endl;
         forwardingTable[destNodeID] = ForwardingTableEntry{};
     }
     cout << "\n\n";
@@ -142,17 +141,67 @@ void Node::generateAllPaths(){
             isReachable = true;
             bestPath = generateBestPathToDestination(destNodeID);
 
-            cout << "\nbestPath returned is: " << bestPath << endl;
+            //cout << "\nbestPath returned is: " << bestPath << endl;
         }
 
-        cout << "destination node " << destNodeID << " is reachable: " << isReachable << ", and the path there is: " << bestPath << endl;
+        //cout << "destination node " << destNodeID << " is reachable: " << isReachable << ", and the path there is: " << bestPath << endl;
 
+        this->forwardingTable[destNodeID].dest = destNodeID;
+        this->forwardingTable[destNodeID].cost = dist[destNodeID];
         this->forwardingTable[destNodeID].isReachable = isReachable;
         this->forwardingTable[destNodeID].path = make_unique<string>(bestPath);
     }
 
-    cout << "\n\n\n" << endl;
+    //cout << "\n\n\n" << endl;
 }
+
+
+
+
+
+int Node::getSecondNumber(const string& path) {
+    istringstream iss(path); // Create an input string stream
+    string token;
+
+    // Extract the second token
+    if (getline(iss, token, ' ')) { // Tokenize based on space
+        if (getline(iss, token, ' ')) { // Get the second token
+            // Convert the second token to an integer and return
+            return stoi(token);
+        }
+    }
+
+    // Return a default value (you might want to handle this differently based on your requirements)
+    return -1;
+}
+
+
+
+
+
+void Node::generateNextHops(){
+    for(auto it = forwardingTable.begin(); it != forwardingTable.end(); ++it){
+        ForwardingTableEntry& entry = it->second;
+
+        cout << "\n\n";
+        cout << "forwardingTable index: " << it->first << endl;
+        cout << "entry.isReachable: "<< entry.isReachable << endl;
+        cout << "entry.cost: "<< entry.cost << endl;
+        cout << "entry.dest: " << entry.dest << endl;
+        cout << "*entry.path: " << *entry.path << endl;
+        cout << "\n\n";
+
+        if(entry.isReachable){
+            if(this->_id == entry.dest){
+                entry.nextHop = entry.dest;
+            }else{
+                entry.nextHop = getSecondNumber(*entry.path);
+                // entry.nextHop = (*entry.path)[1];
+            }
+        }
+    }
+}
+
 
 
 
@@ -172,7 +221,8 @@ void Node::generateForwardingTable(){
     this->emptyForwardingTable();
     this->generateForwardingTableKeys();
     this->generateAllPaths();
-    // this->printAllPaths();
+    this->generateNextHops();
+    this->printAllPaths();
 
 
 
@@ -184,7 +234,7 @@ void Node::generateForwardingTable(){
 void Node::printAllPaths(){
     for(auto it = forwardingTable.begin(); it != forwardingTable.end(); ++it){
         ForwardingTableEntry& entry = it->second;
-        cout << "Best path from " << this->_id << " to " << entry.dest << ": " << *entry.path << endl;
+        cout << "Path from " << this->_id << " to " << entry.dest << " isReachable: " << entry.isReachable << ", and the path is: " << *entry.path << " and the cost is: " << entry.cost << ", and the next hop is: " << entry.nextHop << endl;
     }
     cout << "\n\n";
 

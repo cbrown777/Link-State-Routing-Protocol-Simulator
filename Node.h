@@ -51,6 +51,10 @@ class Node {
         void generateForwardingTableKeys();
         string generateBestPathToDestination(int destination);
         void generateAllPaths();
+        void printAllPaths();
+        void generateNextHops();
+        int getSecondNumber(const string& path);
+
 
     public: 
         Node(int id);
@@ -63,7 +67,7 @@ class Node {
         void printDist();
         void printPredecessors();
         void generateForwardingTable();
-        void printAllPaths();
+
 
 };
 
