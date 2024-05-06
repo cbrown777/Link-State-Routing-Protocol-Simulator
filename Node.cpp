@@ -234,7 +234,7 @@ void Node::printAllPaths(){
 
 
 void Node::writeOutForwardingTable(ofstream& fileStreamOut){
-    fileStreamOut << "Node " << this->_id << " Forwarding Table..." << endl;
+    //fileStreamOut << "Node " << this->_id << " Forwarding Table..." << endl;
     for(auto it = this->forwardingTable.begin(); it != this->forwardingTable.end(); ++it){
         ForwardingTableEntry& entry = it->second;
         if(entry.isReachable){
