@@ -95,7 +95,7 @@ void Topology::setNumberOfVertices(){
 
 
 // Generate Set of Nodes
-void Topology::updateNodes(ifstream& fileStream){
+void Topology::generateTopology(ifstream& fileStream){
 
     cout << "updateNodes()... " << endl;
 
@@ -150,6 +150,20 @@ void Topology::updateNodes(ifstream& fileStream){
 
     cout << "nodeSet generated successfully! \n" << endl;
     setNumberOfVertices();
+}
+
+
+
+
+void Topology::applyChangesFile(string lineFromFile){
+    int node_1, node_2, cost;
+
+    istringstream iss(lineFromFile);
+
+    iss >> node_1 >> node_2 >> cost;
+
+    addNodesToMap(node_1, node_2, cost);
+    addNodesToMap(node_2, node_1, cost);
 }
 
 

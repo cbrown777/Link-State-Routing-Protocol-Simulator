@@ -27,7 +27,8 @@ class Topology{
 
   public:
     Topology();
-    void updateNodes(ifstream& fileStream);
+    void generateTopology(ifstream& fileStream);
+    void applyChangesFile(string lineFromFile);
     void printNodesAndEdges();
     void computeShortestPaths();
     void printDistAndPredecessorsForEveryNode();

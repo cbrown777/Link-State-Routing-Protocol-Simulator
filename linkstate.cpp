@@ -36,6 +36,11 @@ void checkFilesStatus(const ifstream& topofileStream, const ifstream& messagefil
 
 
 
+
+
+
+
+
 int main(int argc, char** argv) {
     //printf("Number of arguments: %d", argc);
     if (argc != 4) {
@@ -63,51 +68,82 @@ int main(int argc, char** argv) {
 
 
 
-
     // Check if files were opened successfully 
     checkFilesStatus(topofileStream, messagefileStream, changesfileStream);
 
 
 
+// _____________________________________________________________________________________
+    // // Generate Topology
+    // Topology top_1;
+    // top_1.updateNodes(topofileStream);
+    // //top_1.printNodesAndEdges();
+
+    // cout << "Just completed printNodesAndEdges(), now let's add the changesfile to see if that correctly modifies the Nodes... \n\n" << endl;
+
+
+    // // add links for 2-4 and then delete, delete links b/w 6-5, 6-12
+    // top_1.updateNodes(changesfileStream);
+
+
+
+    // cout << "Let's generate shortest paths from every Node... \n\n" << endl;
+
+
+    // top_1.computeShortestPaths();
+
+
+    // cout << "Now printing all dist maps and predecessors maps..." << endl;
+    // cout << "____________________________________________________\n\n" << endl;
+
+    // top_1.printDistAndPredecessorsForEveryNode();
+
+
+    // // Generate Forwarding Tables for Nodes after shortest paths have been computed
+    // top_1.generateNodeForwardingTables();
+
+
+
+
+    // top_1.writeOutForwardingTablesForAllNodes(fileStreamOut);
+
+
+    // top_1.writeOutMessages(fileStreamOut, messagefileStream);
+// _____________________________________________________________________________________
+
+
+
+
+
     // Generate Topology
     Topology top_1;
-    top_1.updateNodes(topofileStream);
-    //top_1.printNodesAndEdges();
+    top_1.generateTopology(topofileStream);
 
-    cout << "Just completed printNodesAndEdges(), now let's add the changesfile to see if that correctly modifies the Nodes... \n\n" << endl;
-
-
-    // add links for 2-4 and then delete, delete links b/w 6-5, 6-12
-    top_1.updateNodes(changesfileStream);
-
-
-
-    cout << "Let's generate shortest paths from every Node... \n\n" << endl;
-
-
+    // compute paths, print forwarding tables, print messages
     top_1.computeShortestPaths();
-
-
-    cout << "Now printing all dist maps and predecessors maps..." << endl;
-    cout << "____________________________________________________\n\n" << endl;
-
-    top_1.printDistAndPredecessorsForEveryNode();
-
-
-    // Generate Forwarding Tables for Nodes after shortest paths have been computed
     top_1.generateNodeForwardingTables();
-
-
-
-
     top_1.writeOutForwardingTablesForAllNodes(fileStreamOut);
-
-
     top_1.writeOutMessages(fileStreamOut, messagefileStream);
 
 
 
+    string lineFromFile;
+    // apply changes to topology, one line at a time, before calling above functions
+    while(!changesfileStream.eof()){
+        getline(changesfileStream, lineFromFile);
 
+        if (lineFromFile.empty()) {
+            continue;
+        }
+
+        top_1.applyChangesFile(lineFromFile);
+
+        // DO WORK
+        top_1.computeShortestPaths();
+        top_1.generateNodeForwardingTables();
+        top_1.writeOutForwardingTablesForAllNodes(fileStreamOut);
+        top_1.writeOutMessages(fileStreamOut, messagefileStream);
+    }
 
 
 
@@ -125,6 +161,7 @@ int main(int argc, char** argv) {
 
     return 0;
 }
+
 
 
 
