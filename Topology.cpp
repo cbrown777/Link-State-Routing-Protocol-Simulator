@@ -408,7 +408,11 @@ void Topology::writeOutForwardingTablesForAllNodes(ofstream& fileStreamOut){
 
 
 // Loop through each line of the messagefile and pass the message contents to the correct source node
-void Topology::writeOutMessages(ofstream& fileStreamOut, ifstream messagefileStream){
+void Topology::writeOutMessages(ofstream& fileStreamOut, string messagefile){
+
+    ifstream messagefileStream;
+    messagefileStream.open(messagefile);
+
     // variables for each element of a line from messagefile
     int source_node, dest_node;
     string message;

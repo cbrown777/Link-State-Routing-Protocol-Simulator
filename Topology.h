@@ -34,7 +34,7 @@ class Topology{
     void printDistAndPredecessorsForEveryNode();
     void generateNodeForwardingTables();
     void writeOutForwardingTablesForAllNodes(ofstream& fileStreamOut);
-    void writeOutMessages(ofstream& fileStreamOut, ifstream messagefileStream);
+    void writeOutMessages(ofstream& fileStreamOut, string messagefile);
 
 };
 
