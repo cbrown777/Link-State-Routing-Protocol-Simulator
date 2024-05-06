@@ -54,6 +54,7 @@ class Node {
         void printAllPaths();
         void generateNextHops();
         int getSecondNumber(const string& path);
+        
 
 
     public: 
@@ -67,6 +68,7 @@ class Node {
         void printDist();
         void printPredecessors();
         void generateForwardingTable();
+        void writeOutForwardingTable(ofstream& fileStreamOut);
 
 
 };

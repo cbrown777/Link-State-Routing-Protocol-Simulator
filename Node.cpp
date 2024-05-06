@@ -240,3 +240,17 @@ void Node::printAllPaths(){
 
 }
 
+
+
+
+void Node::writeOutForwardingTable(ofstream& fileStreamOut){
+    
+    for(auto it = this->forwardingTable.begin(); it != this->forwardingTable.end(); ++it){
+        
+
+    }
+
+
+}
+
+
