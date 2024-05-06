@@ -9,6 +9,9 @@
 #include <queue>
 #include <unordered_map>
 
+#include <map>
+
+
 
 using namespace std;
 
@@ -35,7 +38,7 @@ class Node {
         unordered_map<int, int> dist;
 
 
-        unordered_map<int, ForwardingTableEntry> forwardingTable;
+        map<int, ForwardingTableEntry> forwardingTable;
 
 
         // Within a Forwarding Table Struct/Object
