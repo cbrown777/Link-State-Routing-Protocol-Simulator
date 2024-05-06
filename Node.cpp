@@ -67,6 +67,19 @@ void Node::printPredecessors(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 void Node::emptyForwardingTable() {
     this->forwardingTable.clear();
 }
@@ -78,8 +91,10 @@ void Node::generateForwardingTableKeys(){
     // clear the forwarding table out before re-filling it with data
     for(auto it = this->dist.begin(); it != this->dist.end(); ++it){
         int destNodeID = it->first;
+        cout << "current dest node id: " << destNodeID << endl;
         forwardingTable[destNodeID] = ForwardingTableEntry{};
     }
+    cout << "\n\n";
 }
 
 
@@ -102,7 +117,7 @@ string Node::generateBestPathToDestination(int destination) {
 
     // Create a string representation of the path
     std::ostringstream oss;
-    oss << "Shortest path from " << this->_id << " to " << destination << ": ";
+    //oss << "Shortest path from " << this->_id << " to " << destination << ": ";
     for (int node : path) {
         oss << node << " ";
     }
@@ -125,11 +140,18 @@ void Node::generateAllPaths(){
         int destNodeID = it->first;
         if( dist[destNodeID] != INF ){
             isReachable = true;
-            string bestPath = generateBestPathToDestination(destNodeID);
+            bestPath = generateBestPathToDestination(destNodeID);
+
+            cout << "\nbestPath returned is: " << bestPath << endl;
         }
+
+        cout << "destination node " << destNodeID << " is reachable: " << isReachable << ", and the path there is: " << bestPath << endl;
+
         this->forwardingTable[destNodeID].isReachable = isReachable;
         this->forwardingTable[destNodeID].path = make_unique<string>(bestPath);
     }
+
+    cout << "\n\n\n" << endl;
 }
 
 
@@ -141,10 +163,17 @@ void Node::generateForwardingTable(){
 
     // clears the current forwarding table (making it empty), and generates keys to the map, as well
     // as empty ForwardingTableEntry structs 
+
+
+
+
+
+
     this->emptyForwardingTable();
     this->generateForwardingTableKeys();
     this->generateAllPaths();
-    this->printAllPaths();
+    // this->printAllPaths();
+
 
 
 
@@ -155,7 +184,7 @@ void Node::generateForwardingTable(){
 void Node::printAllPaths(){
     for(auto it = forwardingTable.begin(); it != forwardingTable.end(); ++it){
         ForwardingTableEntry& entry = it->second;
-        cout << "Best path from " << this->_id << " to " << entry.dest << ": " << entry.path << endl;
+        cout << "Best path from " << this->_id << " to " << entry.dest << ": " << *entry.path << endl;
     }
     cout << "\n\n";
 
