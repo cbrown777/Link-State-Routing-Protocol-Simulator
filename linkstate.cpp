@@ -103,6 +103,7 @@ int main(int argc, char** argv) {
     top_1.writeOutForwardingTablesForAllNodes(fileStreamOut);
 
 
+    top_1.writeOutMessages(fileStreamOut, messagefileStream);
 
 
 

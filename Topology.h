@@ -8,6 +8,7 @@
 #include <set> 
 #include <fstream>
 #include <unordered_map>
+#include <map>
 
 using std::set;
 using std::unordered_map;
@@ -16,7 +17,7 @@ using std::ifstream;
 
 class Topology{
   private:
-    unordered_map<int, Node*> nodeMap;
+    map<int, Node*> nodeMap;
     int V;
 
     void addNodesToMap(int node_1, int node_2, int cost);
@@ -32,6 +33,7 @@ class Topology{
     void printDistAndPredecessorsForEveryNode();
     void generateNodeForwardingTables();
     void writeOutForwardingTablesForAllNodes(ofstream& fileStreamOut);
+    void writeOutMessages(ofstream& fileStreamOut, ifstream& messagefileStream);
 
 };
 

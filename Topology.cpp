@@ -394,7 +394,38 @@ void Topology::writeOutForwardingTablesForAllNodes(ofstream& fileStreamOut){
 
 
 
+void Topology::writeOutMessages(ofstream& fileStreamOut, ifstream& messagefileStream){
+    // variables for each element of a line from messagefile
+    int source_node, dest_node;
+    string message;
 
+    // read line from messagefile into lineFromFile
+    string lineFromFile; 
+
+    while(!messagefileStream.eof()){
+        getline(messagefileStream, lineFromFile);
+
+        // if there are other incorrect formats for a line (other than being empty, we will need to expand this condition)
+        if (lineFromFile.empty()) {
+            continue;
+        }
+
+        istringstream iss(lineFromFile);
+
+        iss >> source_node >> dest_node >> message;
+
+
+        // Output the parsed numbers
+        cout << "\n\n writeOutMessages() ..." << endl;
+        cout << "source_node: " << source_node << endl;
+        cout << "dest_node: " << dest_node << endl;
+        cout << "message: " << message << endl;
+        cout << "\n" << endl;
+
+    }
+
+
+}
 
 
 
