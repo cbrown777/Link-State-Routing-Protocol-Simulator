@@ -4,6 +4,215 @@ Node 1 Forwarding Table...
 3 4 9
 4 4 1
 5 4 2
+6 4 19
+12 4 62
+Node 2 Forwarding Table...
+1 5 6
+2 2 0
+3 3 3
+4 5 5
+5 5 4
+6 5 21
+12 5 64
+Node 3 Forwarding Table...
+1 2 9
+2 2 3
+3 3 0
+4 2 8
+5 2 7
+6 2 24
+12 2 67
+Node 4 Forwarding Table...
+1 1 1
+2 5 5
+3 5 8
+4 4 0
+5 5 1
+6 5 18
+12 5 61
+Node 5 Forwarding Table...
+1 4 2
+2 2 4
+3 2 7
+4 4 1
+5 5 0
+6 6 17
+12 6 60
+Node 6 Forwarding Table...
+1 5 19
+2 5 21
+3 5 24
+4 5 18
+5 5 17
+6 6 0
+12 12 43
+Node 12 Forwarding Table...
+1 6 62
+2 6 64
+3 6 67
+4 6 61
+5 6 60
+6 6 43
+12 12 0
+from 2 to 1 cost 6 hops 2 5 4 message here is a message from 2 to 1
+from 3 to 5 cost 7 hops 3 2 message this one gets sent from 3 to 5!
+from 4 to 4 cost 0 hops 4 message this one gets sent from 4 to 4!
+from 6 to 6 cost 0 hops 6 message this one gets sent from 6 to 6!
+from 1 to 12 cost 62 hops 1 4 5 6 message this one gets sent from 1 to 12!
+Node 1 Forwarding Table...
+1 1 0
+2 4 2
+3 4 5
+4 4 1
+5 4 2
+6 4 19
+12 4 62
+Node 2 Forwarding Table...
+1 4 2
+2 2 0
+3 3 3
+4 4 1
+5 4 2
+6 4 19
+12 4 62
+Node 3 Forwarding Table...
+1 2 5
+2 2 3
+3 3 0
+4 2 4
+5 2 5
+6 2 22
+12 2 65
+Node 4 Forwarding Table...
+1 1 1
+2 2 1
+3 2 4
+4 4 0
+5 5 1
+6 5 18
+12 5 61
+Node 5 Forwarding Table...
+1 4 2
+2 4 2
+3 4 5
+4 4 1
+5 5 0
+6 6 17
+12 6 60
+Node 6 Forwarding Table...
+1 5 19
+2 5 19
+3 5 22
+4 5 18
+5 5 17
+6 6 0
+12 12 43
+Node 12 Forwarding Table...
+1 6 62
+2 6 62
+3 6 65
+4 6 61
+5 6 60
+6 6 43
+12 12 0
+Node 1 Forwarding Table...
+1 1 0
+2 4 6
+3 4 9
+4 4 1
+5 4 2
+6 4 19
+12 4 62
+Node 2 Forwarding Table...
+1 5 6
+2 2 0
+3 3 3
+4 5 5
+5 5 4
+6 5 21
+12 5 64
+Node 3 Forwarding Table...
+1 2 9
+2 2 3
+3 3 0
+4 2 8
+5 2 7
+6 2 24
+12 2 67
+Node 4 Forwarding Table...
+1 1 1
+2 5 5
+3 5 8
+4 4 0
+5 5 1
+6 5 18
+12 5 61
+Node 5 Forwarding Table...
+1 4 2
+2 2 4
+3 2 7
+4 4 1
+5 5 0
+6 6 17
+12 6 60
+Node 6 Forwarding Table...
+1 5 19
+2 5 21
+3 5 24
+4 5 18
+5 5 17
+6 6 0
+12 12 43
+Node 12 Forwarding Table...
+1 6 62
+2 6 64
+3 6 67
+4 6 61
+5 6 60
+6 6 43
+12 12 0
+Node 1 Forwarding Table...
+1 1 0
+2 4 6
+3 4 9
+4 4 1
+5 4 2
+Node 2 Forwarding Table...
+1 5 6
+2 2 0
+3 3 3
+4 5 5
+5 5 4
+Node 3 Forwarding Table...
+1 2 9
+2 2 3
+3 3 0
+4 2 8
+5 2 7
+Node 4 Forwarding Table...
+1 1 1
+2 5 5
+3 5 8
+4 4 0
+5 5 1
+Node 5 Forwarding Table...
+1 4 2
+2 2 4
+3 2 7
+4 4 1
+5 5 0
+Node 6 Forwarding Table...
+6 6 0
+12 12 43
+Node 12 Forwarding Table...
+6 6 43
+12 12 0
+Node 1 Forwarding Table...
+1 1 0
+2 4 6
+3 4 9
+4 4 1
+5 4 2
 Node 2 Forwarding Table...
 1 5 6
 2 2 0
@@ -32,8 +241,3 @@ Node 6 Forwarding Table...
 6 6 0
 Node 12 Forwarding Table...
 12 12 0
-from 2 to 1 cost 6 hops 2 5 4 message here is a message from 2 to 1
-from 3 to 5 cost 7 hops 3 2 message this one gets sent from 3 to 5!
-from 4 to 4 cost 0 hops 4 message this one gets sent from 4 to 4!
-from 6 to 6 cost 0 hops 6 message this one gets sent from 6 to 6!
-from 1 to 12 cost infinite hops unreachable message this one gets sent from 1 to 12!
