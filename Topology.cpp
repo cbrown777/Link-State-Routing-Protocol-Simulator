@@ -412,15 +412,17 @@ void Topology::writeOutMessages(ofstream& fileStreamOut, ifstream& messagefileSt
 
         istringstream iss(lineFromFile);
 
-        iss >> source_node >> dest_node >> message;
+        iss >> source_node >> dest_node;
+
+        getline(iss >> ws, message);
 
 
         // Output the parsed numbers
-        cout << "\n\n writeOutMessages() ..." << endl;
-        cout << "source_node: " << source_node << endl;
-        cout << "dest_node: " << dest_node << endl;
-        cout << "message: " << message << endl;
-        cout << "\n" << endl;
+        fileStreamOut << "\n\n writeOutMessages() ..." << endl;
+        fileStreamOut << "source_node: " << source_node << endl;
+        fileStreamOut << "dest_node: " << dest_node << endl;
+        fileStreamOut << "message: " << message << endl;
+        fileStreamOut << "\n" << endl;
 
     }
 

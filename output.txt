@@ -32,3 +32,19 @@ Node 6 Forwarding Table...
 6 6 0
 Node 12 Forwarding Table...
 12 12 0
+
+
+ writeOutMessages() ...
+source_node: 2
+dest_node: 1
+message: here
+
+
+
+
+ writeOutMessages() ...
+source_node: 3
+dest_node: 5
+message: this
+
+
